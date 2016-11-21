@@ -11,6 +11,13 @@ var app = http.createServer(function(request, response){
     // root일 경우에만 출력
     response.write("This is HOME!!!!!!!!");
   }
+
+  var detailId = request.url.replace("/", "");
+  if ( detailId.length > 0 ) {
+    response.write(detailId);
+  }
+
+
   response.end();
 }).listen(process.env.PORT || 3030);
 
