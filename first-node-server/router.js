@@ -1,35 +1,26 @@
 var fs = require('fs'); // file system module
+var renderer = require('./renderer');
 
 
-function home(request, response) {
-  fs.readFile("./layout/home.html", function(err, data) {
-    response.write(data);
-    response.end();
-  });
+module.exports = function(request, response) {
+  var layoutName = null;
+  var rq_url = request.url.toLowerCase();
+
+  switch(rq_url) {
+    case '/': layoutName = "home";
+      break;
+    case '/about': layoutName = "about";
+      break;
+    case '/fastcampus': layoutName = "fastcampus";
+      break;
+    default: layoutName = "err_404";
+      break;
+  }
+
+  renderer(request, response, layoutName);
 }
 
-function about(request, response) {
-  fs.readFile("./layout/about.html", function(err, data) {
-    response.write(data);
-    response.end();
-  });
-}
-
-function fastcampus(request, response) {
-  fs.readFile("./layout/fastcampus.html", function(err, data) {
-    response.write(data);
-    response.end();
-  });
-}
-
-function err_404(request, response) {
-  fs.readFile("./layout/err_404.html", function(err, data) {
-    response.write(data);
-    response.end();
-  });
-}
-
-module.exports.home = home;
-module.exports.about = about;
-module.exports.fastcampus = fastcampus;
-module.exports.err_404 = err_404;
+// module.exports.home = home;
+// module.exports.about = about;
+// module.exports.fastcampus = fastcampus;
+// module.exports.err_404 = err_404;

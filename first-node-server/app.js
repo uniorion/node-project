@@ -18,20 +18,23 @@ var app = http.createServer(function(request, response){
   //   response.write(detailId);
   // }
   
-  var rq_url = request.url.toLowerCase();
+  // var rq_url = request.url.toLowerCase();
 
-  switch(rq_url) {
-    case '/': router.home(request, response);
-      break;
-    case '/about': router.about(request, response);
-      break;
-    case '/fastcampus': router.fastcampus(request, response);
-      break;
-    default: router.err_404(request, response);
-      break;
-  }
+  // switch(rq_url) {
+  //   case '/': router.home(request, response);
+  //     break;
+  //   case '/about': router.about(request, response);
+  //     break;
+  //   case '/fastcampus': router.fastcampus(request, response);
+  //     break;
+  //   default: router.err_404(request, response);
+  //     break;
+  // }
 
   // response.end();
+  
+  router(request, response);
+  
 }).listen(process.env.PORT || 3030);
 
 console.log("First Node Server is running at localhost");

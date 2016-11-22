@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fastcampus Frontend SCHOOL - Node Server</title>
+  <style>
+    a {
+      text-decoration: none;
+    }
+    a:hover, 
+    a:visited {
+      color: #000;
+    }
+    ul, li { 
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      margin-left: auto;
+      margin-right: auto;
+      width: 960px;
+      height: 100vh;
+    }
+    header,
+    footer {
+      border: 2px solid #25DBBC;
+      border-radius: 3px;
+      padding: 1em;
+    }
+    header ul {
+      margin-left: 2em;
+      padding-bottom: 1em;
+    }
+    header ul li {
+      float: left;
+      width: 100px;
+    }
+    header ul li a {
+      display: block;
+    }
+    h1 {
+      padding: 1em 1.5em;
+      font-size: 2em;
+      color: #FF7A7A;
+      border: 3px solid #FF7A7A;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    {% header %}
+    {% content %}
+    {% footer %}
+  </div>
+</body>
+</html>
