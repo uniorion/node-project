@@ -1,12 +1,14 @@
 var express = require('express');
-var app = express();
+var app     = express();
+
+var indexRouter  = require('./routes/main')(app);
+var aboutRouter  = require('./routes/about')(app);
+
 
 app.set('port', process.env.PORT || 8080);
-
-app.get('/', function(req, res) {
-  res.type('text/plain');
-  res.send('Hello Express!@');
-});
+app.set('views', __dirname + '/views');
+app.set('view engines', 'ejs');
+app.engine('html', require('ejs').renderFile);
 
 app.use(function(req, res){
   res.status('404');
@@ -19,8 +21,6 @@ app.use(function() {
   res.type('text/plain');
   res.send('500 - Server Error');
 });
-
-
 
 app.listen(app.get('port'), function() {
   console.log('First express Server is running at localhost:' + app.get('port'));
