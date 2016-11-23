@@ -3,6 +3,7 @@ var app = express();
 
 var indexRouter = require('./routers/index')(app);
 var aboutRouter = require('./routers/about')(app);
+var usersRouter = require('./routers/users')(app);
 
 app.set('port', process.env.PORT || 3030); 
 //---------- views for rendering ----------
