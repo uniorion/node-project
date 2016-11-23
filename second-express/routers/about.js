@@ -1,5 +1,5 @@
 module.exports = function(app){
   app.get('/about', function(req, res) {
-    res.send('This is About~~!');
+    res.render('about.ejs');
   });
 };
