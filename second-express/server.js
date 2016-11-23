@@ -4,6 +4,7 @@ var app = express();
 var indexRouter = require('./routers/index')(app);
 var aboutRouter = require('./routers/about')(app);
 var usersRouter = require('./routers/users')(app);
+var chatRouter = require('./routers/chat')(app);
 
 app.set('port', process.env.PORT || 3030); 
 //---------- views for rendering ----------
