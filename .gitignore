@@ -1,6 +1,7 @@
 #custom
 .gitignore
 assets/
+fileupload/
 
 # Logs
 logs
