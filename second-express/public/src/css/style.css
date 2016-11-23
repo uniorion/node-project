@@ -1,0 +1,25 @@
+body {
+  margin-left: auto;
+  margin-right: auto;
+  width: 960px;
+}
+p {
+  padding: 1em 2em;
+  border: 2px dashed #B9B9BC;
+}
+header {
+  border-bottom: 2px solid hsla(256, 200, 10, 0.5);
+}
+.wrapper {
+  height: 200px;
+  padding-left: 2em;
+}
+.wrapper h2 {
+  margin-left: 0.2em;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #BCBCBC;
+  color: #5D5D5D;
+  font-size: 2em;
+}
+footer {
+}

@@ -4,11 +4,16 @@ var app = express();
 var indexRouter = require('./routers/index')(app);
 var aboutRouter = require('./routers/about')(app);
 
-app.set('port', process.env.PORT || 3030);  
+app.set('port', process.env.PORT || 3030); 
+//---------- views for rendering ----------
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 // views 폴더에 html 파일이 있어도 ejs 엔진으로 렌더링
 app.engine('html', require('ejs').renderFile);
+//----------------------------------------
+
+// public for express static 
+app.use('/public', express.static(__dirname + '/public'));
 
 app.use(function(req, res){
   res.type('text/plain');
