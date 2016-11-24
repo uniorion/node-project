@@ -5,14 +5,21 @@ module.exports = function(app){
   app.get('/chat', function(req, res) {
     res.render('chat.ejs');
   });
-  io.on('connection', function(socket){
-    console.log('new user is connected!!');
-  });
-  http.listen(3000, function(){
-    console.log('Chat server is listen on 3000');
+
+  io.on('connection', function(socket) {
+    console.log('New User connected!');
+
+    socket.on('chat message', function(msg) {
+      console.log('message: ', msg);
+      io.emit('chat message', msg);
+    });
+
+    socket.on('disconnect', function() {
+      console.log('User disconnected');
+    })
   });
 
-  // app.get('/chat', function(req, res) {
-  //   res.render('chat.ejs');
-  // });
+  http.listen(process.env.PORT || 8080, function() {
+    console.log('Chat Server is running...');
+  });
 }
